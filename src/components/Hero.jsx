@@ -1,17 +1,32 @@
-// Hero text includes:
-// Your name
-// Your role
-// Your main message
-// 2 buttons:
-// View Projects
-// Download CV
-
 import Background from "./Background";
-import MagneticButton from "./MagneticButton";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
 
 const Hero = () => {
   return (
-    <div
+    <section
       id="hero"
       className="relative min-h-screen w-screen bg-black overflow-hidden"
     >
@@ -19,12 +34,24 @@ const Hero = () => {
 
       {/* Accent glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[600px] h-[600px] bg-gradient-to-tr from-indigo-500/30 via-purple-500/20 to-pink-500/20 blur-[120px] rounded-full animate-pulse"></div>
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+          className="w-[600px] h-[600px] bg-gradient-to-tr from-indigo-500/30 via-purple-500/20 to-pink-500/20 blur-[120px] rounded-full"
+        />
       </div>
 
-      <div className="relative z-40 w-full min-h-screen flex flex-col items-center justify-center px-6 text-center">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative z-40 w-full min-h-screen flex flex-col items-center justify-center px-6 text-center"
+      >
         <div className="max-w-4xl space-y-6">
-          <h1
+          {/* Headline */}
+          <motion.h1
+            variants={itemVariants}
             className="
               text-4xl md:text-6xl lg:text-7xl 
               font-bold tracking-tight
@@ -45,9 +72,11 @@ const Hero = () => {
             >
               Code that scales.
             </span>
-          </h1>
+          </motion.h1>
 
-          <p
+          {/* Subtitle */}
+          <motion.p
+            variants={itemVariants}
             className="
               max-w-2xl mx-auto
               text-base md:text-lg
@@ -58,52 +87,42 @@ const Hero = () => {
             I’m a design-driven full stack developer building bold, scalable web
             experiences that help brands, startups, and creators grow with
             confidence.
-          </p>
+          </motion.p>
         </div>
 
         {/* CTA BUTTONS */}
-        <div className="flex flex-wrap items-center justify-center gap-6 mt-10">
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-wrap items-center justify-center gap-6 mt-10"
+        >
           <a href="#projects">
-            <button
+            <motion.button
+              whileHover={{ scale: 1.06, y: -4 }}
+              whileTap={{ scale: 0.95 }}
               className="
                 relative overflow-hidden
                 px-10 py-4
                 rounded-full
                 text-sm font-semibold tracking-wide
-
                 bg-white text-black
-
                 shadow-[0_10px_30px_rgba(255,255,255,0.25)]
-
-                transition-all duration-300 ease-out
-                hover:scale-105
-                hover:-translate-y-1
-                hover:bg-neutral-100
-                hover:shadow-[0_15px_60px_rgba(255,255,255,0.45)]
-                active:scale-95
               "
             >
               View Projects
-            </button>
+            </motion.button>
           </a>
 
           <a href="#contact">
-            <button
+            <motion.button
+              whileHover={{ scale: 1.06, y: -4 }}
+              whileTap={{ scale: 0.95 }}
               className="
                 relative overflow-hidden
                 px-10 py-4
                 rounded-full
                 text-sm font-semibold tracking-wide text-white
-
                 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
-
                 shadow-[0_10px_40px_rgba(0,0,0,0.6)]
-
-                transition-all duration-300 ease-out
-                hover:scale-105
-                hover:-translate-y-1
-                hover:shadow-[0_15px_60px_rgba(168,85,247,0.6)]
-                active:scale-95
                 group
               "
             >
@@ -115,13 +134,13 @@ const Hero = () => {
                   transition-all duration-700
                   group-hover:left-[100%]
                 "
-              ></span>
+              />
               Contact Me
-            </button>
+            </motion.button>
           </a>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </section>
   );
 };
 
