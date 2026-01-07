@@ -58,20 +58,27 @@ const Contact = () => {
         </p>
 
         {/* Contact Form */}
-        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+        <form
+          action={"https://getform.io/f/bvrmpyzb"}
+          method="POST"
+          className="flex flex-col gap-6"
+        >
           <input
+            name="name"
             type="text"
             placeholder="Your Name"
             className="bg-white/10 backdrop-blur-md border-2 border-transparent focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500 rounded-xl px-4 py-3 text-white placeholder-white/50 transition-all duration-300"
             required
           />
           <input
+            name="email"
             type="email"
             placeholder="Your Email"
             className="bg-white/10 backdrop-blur-md border-2 border-transparent focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500 rounded-xl px-4 py-3 text-white placeholder-white/50 transition-all duration-300"
             required
           />
           <textarea
+            name="message"
             placeholder="Your Message"
             rows="5"
             className="bg-white/10 backdrop-blur-md border-2 border-transparent focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500 rounded-xl px-4 py-3 text-white placeholder-white/50 transition-all duration-300"

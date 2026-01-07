@@ -84,13 +84,16 @@ const Blog = () => {
           <h2 className="text-3xl md:text-4xl font-bold">Recommendation</h2>
 
           <p className="max-w-3xl mx-auto text-white/80 text-xl md:text-2xl leading-relaxed italic font-semibold">
-            “Ativor is an exceptional developer — self-motivated, creative, and
-            dedicated. He consistently delivers high-quality work and brings a
-            unique perspective that benefits any project.”
+            “Godsway consistently demonstrated strong discipline,
+            responsibility, and technical capability. Despite working remotely,
+            he was always punctual, reliable, and highly responsive. He
+            frequently exceeded expectations by taking initiative beyond his
+            assigned scope of work and maintaining a strong sense of ownership
+            over his tasks.”
           </p>
 
           <p className="mt-4 text-white/60 text-lg font-bold">
-            — Koryis, Francis Agbo, Founders
+            — Francis Amegbor (СТО at Koryis)
           </p>
 
           <div className="pt-10 flex justify-center">
@@ -124,10 +127,10 @@ const Blog = () => {
             </button>
 
             {/* Recommendation Image */}
-            <img
-              src="/images/recommendation-sample.png"
-              alt="Recommendation Letter"
-              className="w-full h-auto object-contain"
+            <iframe
+              src="/file/recommendation.pdf"
+              className="w-full h-[600px] rounded-xl border"
+              title="PDF Preview"
             />
           </div>
         </div>
